@@ -98,32 +98,40 @@ st.sidebar.markdown("""
 
 # Navigation menu
 st.sidebar.markdown("### 📊 Dashboard")
-if st.sidebar.button("Dashboard Overview", key="dashboard_btn"):
+
+# Dashboard link
+if st.sidebar.button("🏠 Dashboard Overview", key="dashboard_btn", help="View main dashboard"):
     st.session_state.current_page = 'Dashboard'
 
 st.sidebar.markdown("### 📝 Onboarding")
 col1, col2 = st.sidebar.columns(2)
-if col1.button("Fund Onboarding", key="fund_btn"):
-    st.session_state.current_page = 'Fund Onboarding'
-if col2.button("Client Onboarding", key="client_btn"):
-    st.session_state.current_page = 'Client Onboarding'
+with col1:
+    if st.button("🏦 Fund Onboarding", key="fund_btn", help="Fund Onboarding"):
+        st.session_state.current_page = 'Fund Onboarding'
+with col2:
+    if st.button("👥 Client Onboarding", key="client_btn", help="Client Onboarding"):
+        st.session_state.current_page = 'Client Onboarding'
 
 col3, col4 = st.sidebar.columns(2)
-if col3.button("Person Onboarding", key="person_btn"):
-    st.session_state.current_page = 'Person Onboarding'
-if col4.button("Investor Onboarding", key="investor_btn"):
-    st.session_state.current_page = 'Investor Onboarding'
+with col3:
+    if st.button("👤 Person Onboarding", key="person_btn", help="Person Onboarding"):
+        st.session_state.current_page = 'Person Onboarding'
+with col4:
+    if st.button("💼 Investor Onboarding", key="investor_btn", help="Investor Onboarding"):
+        st.session_state.current_page = 'Investor Onboarding'
 
 st.sidebar.markdown("### 🔒 Compliance & KYC")
-if st.sidebar.button("AML / KYC", key="aml_btn"):
+if st.sidebar.button("🛡️ AML / KYC", key="aml_btn", help="AML / KYC Compliance"):
     st.session_state.current_page = 'AML / KYC'
 
 st.sidebar.markdown("### 🔗 Relationships")
 col5, col6 = st.sidebar.columns(2)
-if col5.button("Fund/Company", key="fund_company_btn"):
-    st.session_state.current_page = 'Fund/Company Relationship'
-if col6.button("Individual/Fund", key="indiv_fund_btn"):
-    st.session_state.current_page = 'Individual/Fund Relationship'
+with col5:
+    if st.button("🏢 Fund/Company", key="fund_company_btn", help="Fund/Company Relationship"):
+        st.session_state.current_page = 'Fund/Company Relationship'
+with col6:
+    if st.button("🤝 Individual/Fund", key="indiv_fund_btn", help="Individual/Fund Relationship"):
+        st.session_state.current_page = 'Individual/Fund Relationship'
 
 # Main content area
 if st.session_state.current_page == 'Dashboard':
